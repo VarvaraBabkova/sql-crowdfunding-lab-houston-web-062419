@@ -14,7 +14,6 @@ create trigger pledges_ins_trigger after insert on pledges
       insert into pledges values(new.id + 1, random(), 1, 1);
     end;
 
-
 pragma recursive_triggers = 1;
 
 insert into users values(1, "user ", 20);

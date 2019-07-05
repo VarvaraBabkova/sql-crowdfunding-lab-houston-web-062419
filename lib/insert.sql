@@ -1,0 +1,1 @@
+INSERT INTO projects VALUES ("A", "IT", 1000, "01.01.2020", "01.01.2021");

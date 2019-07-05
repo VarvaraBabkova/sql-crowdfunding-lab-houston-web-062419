@@ -27,7 +27,7 @@ group by users.name order by sum(pledges.amount), users.name; "
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-"select projects.category, sum(pledges.amount) from projects, pledges
+"select projects.category, pledges.amount from projects, pledges
 where projects.id = pledges.project_id and projects.category = 'music' group by projects.category; "
 end
 

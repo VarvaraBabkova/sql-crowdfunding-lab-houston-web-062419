@@ -6,7 +6,11 @@ INSERT INTO projects VALUES (1, "A", "IT", 1000, "01.01.2020", "01.01.2021");
 -- INSERT INTO users VALUES (4, "User 4", 23);
 -- INSERT INTO users VALUES (5, "User 5", 24);
 
-FOR ctr IN 1..10 LOOP
-  INSERT INTO users VALUES (ctr, "User 1", 20);
+create trigger test1_ins_trigger after insert on users
+  when new.val < 1000 begin
+    insert into users(id) values(new.val + 1);
+  end;
 
-END LOOP;
+pragma recursive_triggers = 1;
+
+insert into users(id) values(1);

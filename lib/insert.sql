@@ -1,4 +1,3 @@
-INSERT INTO projects VALUES (1, "A", "IT", 1000, "01.01.2020", "01.01.2021");
 
 -- INSERT INTO users VALUES (1, "User 1", 20);
 -- INSERT INTO users VALUES (2, "User 2", 21);
@@ -6,11 +5,19 @@ INSERT INTO projects VALUES (1, "A", "IT", 1000, "01.01.2020", "01.01.2021");
 -- INSERT INTO users VALUES (4, "User 4", 23);
 -- INSERT INTO users VALUES (5, "User 5", 24);
 
-create trigger test1_ins_trigger after insert on users
+create trigger users_ins_trigger after insert on users
   when new.id < 20 begin
     insert into users(id, name, age) values(new.id + 1, "user " + new.id, 20 + new.id);
   end;
 
+create trigger project_ins_trigger after insert on projects
+    when new.id < 10 begin
+      insert into projects values(new.id + 1, "title " + new.id, "IT", 10 + new.funding_goal, "01.01.2020", "01.01.2021");
+    end;
+  
+
 pragma recursive_triggers = 1;
 
 insert into users(id, name, age) values(1, "user ", 20);
+insert into projects values(1, "title ", "IT", 10, "01.01.2020", "01.01.2021");
+--insert into users(id, name, age) values(1, "user ", 20);

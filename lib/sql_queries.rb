@@ -17,7 +17,7 @@ where pledges.user_id = users.id group by users.name order by users.name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-"select projects.title, (projects.funding_goal - sum(pledges.amount)) from projects, pledges
+"select projects.title, (sum(pledges.amount)) from projects, pledges
 where projects.id = pledges.project_id group by projects.title having sum(pledges.amount) >= projects.funding_goal;"
 end
 

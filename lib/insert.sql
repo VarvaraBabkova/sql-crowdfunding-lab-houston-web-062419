@@ -18,6 +18,6 @@ create trigger project_ins_trigger after insert on projects
 
 pragma recursive_triggers = 1;
 
-insert into users(id, name, age) values(1, "user ", 20);
+insert into users values(1, "user ", 20);
 insert into projects values(1, "title ", "IT", 10, "01.01.2020", "01.01.2021");
---insert into users(id, name, age) values(1, "user ", 20);
+insert into pledges values(1, "user ", 20);

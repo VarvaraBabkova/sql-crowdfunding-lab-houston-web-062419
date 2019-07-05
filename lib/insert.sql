@@ -7,8 +7,8 @@ INSERT INTO projects VALUES (1, "A", "IT", 1000, "01.01.2020", "01.01.2021");
 -- INSERT INTO users VALUES (5, "User 5", 24);
 
 create trigger test1_ins_trigger after insert on users
-  when users.id < 1000 begin
-    insert into users(id) values(users.id + 1);
+  when new.id < 1000 begin
+    insert into users(id) values(new.id + 1);
   end;
 
 pragma recursive_triggers = 1;

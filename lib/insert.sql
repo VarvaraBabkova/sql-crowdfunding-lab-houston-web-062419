@@ -14,7 +14,7 @@ create trigger project_ins_trigger after insert on projects
     when new.id < 10 begin
       insert into projects values(new.id + 1, "title " + new.id, "IT", 10 + new.funding_goal, "01.01.2020", "01.01.2021");
     end;
-  
+
 
 pragma recursive_triggers = 1;
 

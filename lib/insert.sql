@@ -14,7 +14,7 @@ create trigger project_ins_trigger after insert on projects
     when new.id < 10 begin
       insert into projects values(new.id + 1, "title " + new.id, "IT", 10 + new.funding_goal, "01.01.2020", "01.01.2021");
     end;
-    
+
 create trigger pledges_ins_trigger after insert on pledges
     when new.id < 30 begin
       insert into pledges values(new.id + 1, 1000, SELECT id FROM users ORDER BY random() LIMIT 1;

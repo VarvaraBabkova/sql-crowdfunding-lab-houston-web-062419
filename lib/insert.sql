@@ -11,8 +11,7 @@ create trigger project_ins_trigger after insert on projects
 
 create trigger pledges_ins_trigger after insert on pledges
     when new.id < 30 begin
-      insert into pledges values(new.id + 1, random(), 1,
-      1);
+      insert into pledges values(new.id + 1, random(), 1, 1);
     end;
 
 
